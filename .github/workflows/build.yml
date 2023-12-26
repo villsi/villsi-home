@@ -1,12 +1,11 @@
-# Dev 分支推送部署预览
+# main 分支推送部署预览
 ## 仅部署 Win 端
-name: Build Dev
+name: Build Main
 
 on:
   push:
     branches:
-      - dev
-      - master
+      - main
 
 jobs:
   release:
@@ -36,7 +35,7 @@ jobs:
         with:
           name: Home
           path: dist
-      - name: Deploy
+      - name: Deploy gh-pages
         uses: peaceiris/actions-gh-pages@v3 # 使用第三方 Action 把构建完成的 Artifact 部署到指定分支
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
